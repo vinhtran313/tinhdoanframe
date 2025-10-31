@@ -1,16 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
+// import { saveAs } from "file-saver";
+document.addEventListener("DOMContentLoaded", function () {
   let cropper;
-  const imageChoose = document.getElementById('image-choose');
-  const imgChoosen = document.getElementById('img-choosen');
-  const cropperImage = document.getElementById('cropperImage');
-  const cropperModal = document.getElementById('cropperModal');
-  const saveCroppedImage = document.getElementById('saveCroppedImage');
-  const closeModal = document.querySelector('.close');
-  const nameInput = document.getElementById('name');
-  const titleInput = document.getElementById('title');
-  const messageInput = document.getElementById('message');
-  const submitBtn = document.getElementById('submit');
-  const loaderWrapper = document.querySelector('.loader-wrapper');
+  const imageChoose = document.getElementById("image-choose");
+  const imgChoosen = document.getElementById("img-choosen");
+  const cropperImage = document.getElementById("cropperImage");
+  const cropperModal = document.getElementById("cropperModal");
+  const saveCroppedImage = document.getElementById("saveCroppedImage");
+  const closeModal = document.querySelector(".close");
+  const nameInput = document.getElementById("name");
+  const titleInput = document.getElementById("title");
+  const messageInput = document.getElementById("message");
+  const submitBtn = document.getElementById("submit");
+  const loaderWrapper = document.querySelector(".loader-wrapper");
 
   function resetInput() {
     imageChoose.value = "";
@@ -21,14 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Image cropper functionality
-  imageChoose.addEventListener('change', function() {
+  imageChoose.addEventListener("change", function () {
     const files = this.files;
     if (files.length > 0) {
       const file = files[0];
       const reader = new FileReader();
-      reader.onload = function(event) {
+      reader.onload = function (event) {
         cropperImage.src = event.target.result;
-        cropperModal.style.display = 'block';
+        cropperModal.style.display = "block";
         if (cropper) {
           cropper.destroy();
         }
@@ -41,54 +42,54 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  saveCroppedImage.addEventListener('click', function() {
+  saveCroppedImage.addEventListener("click", function () {
     if (cropper) {
       const canvas = cropper.getCroppedCanvas();
       const base64encodedImage = canvas.toDataURL("image/jpeg");
       imgChoosen.src = base64encodedImage;
-      cropperModal.style.display = 'none';
+      cropperModal.style.display = "none";
       resetInput();
     }
   });
 
-  closeModal.addEventListener('click', function() {
-    cropperModal.style.display = 'none';
+  closeModal.addEventListener("click", function () {
+    cropperModal.style.display = "none";
     resetInput();
   });
 
-  window.addEventListener('click', function(event) {
+  window.addEventListener("click", function (event) {
     if (event.target === cropperModal) {
-      cropperModal.style.display = 'none';
+      cropperModal.style.display = "none";
       resetInput();
     }
   });
 
   // Text input handlers
-  nameInput.addEventListener('input', function() {
-    const nameContent = document.querySelector('.name-content');
+  nameInput.addEventListener("input", function () {
+    const nameContent = document.querySelector(".name-content");
     if (nameContent) {
       nameContent.textContent = this.value;
     }
   });
 
-  titleInput.addEventListener('input', function() {
-    const titleContent = document.querySelector('.title-content');
+  titleInput.addEventListener("input", function () {
+    const titleContent = document.querySelector(".title-content");
     if (titleContent) {
-      titleContent.innerHTML = this.value.replace(/\n/g, '<br>');
+      titleContent.innerHTML = this.value.replace(/\n/g, "<br>");
     }
   });
 
-  messageInput.addEventListener('input', function() {
-    const messageContent = document.querySelector('.message-content');
+  messageInput.addEventListener("input", function () {
+    const messageContent = document.querySelector(".message-content");
     if (messageContent) {
       messageContent.textContent = this.value;
     }
   });
 
   // Submit handler
-  submitBtn.addEventListener('click', function() {
-    loaderWrapper.style.display = 'flex';
-    const node = document.getElementById('frame-wrapper');
+  submitBtn.addEventListener("click", function () {
+    loaderWrapper.style.display = "flex";
+    const node = document.getElementById("frame-wrapper");
     const scaleObject = window.innerWidth < 768 ? 10 : 5;
     const options = {
       width: node.offsetWidth * scaleObject,
@@ -100,22 +101,32 @@ document.addEventListener('DOMContentLoaded', function() {
       quality: 1,
     };
 
-    domtoimage.toPng(node, options)
-      .then(function(dataUrl) {
-        return domtoimage.toPng(node, options);
+    //   domtoimage.toPng(node, options)
+    //     .then(function(dataUrl) {
+    //       return domtoimage.toPng(node, options);
+    //     })
+    //     .then(function(data1) {
+    //       const link = document.createElement('a');
+    //       link.download = 'Guiloiyeuthuong.png';
+    //       link.href = data1;
+    //       document.body.appendChild(link);
+    //       link.click();
+    //       document.body.removeChild(link);
+    //       loaderWrapper.style.display = 'none';
+    //     })
+    //     .catch(function(error) {
+    //       console.error('Error generating image:', error);
+    //       loaderWrapper.style.display = 'none';
+    //     });
+    domtoimage
+      .toBlob(node, options)
+      .then(function (blob) {
+        saveAs(blob, "Guiloiyeuthuong.png");
+        loaderWrapper.style.display = "none";
       })
-      .then(function(data1) {
-        const link = document.createElement('a');
-        link.download = 'Guiloiyeuthuong.png';
-        link.href = data1;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        loaderWrapper.style.display = 'none';
-      })
-      .catch(function(error) {
-        console.error('Error generating image:', error);
-        loaderWrapper.style.display = 'none';
+      .catch(function (error) {
+        console.error("Error generating image:", error);
+        loaderWrapper.style.display = "none";
       });
   });
 });
