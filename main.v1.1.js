@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
         img.style.borderRadius = '12px';
         img.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
         img.style.marginTop = '10px';
-
+        node.innerHTML = '';
         // Xóa nội dung cũ và chèn ảnh
         node.appendChild(img);
         const downloadBtn = document.createElement('a');
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         downloadBtn.style.padding = '10px 14px';
         downloadBtn.style.borderRadius = '8px';
         downloadBtn.style.textDecoration = 'none';
-        node.innerHTML = '';
+
         node.appendChild(downloadBtn);
 
         // Popup hướng dẫn người dùng
