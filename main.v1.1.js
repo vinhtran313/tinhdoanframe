@@ -116,11 +116,8 @@ document.addEventListener("DOMContentLoaded", function () {
         img.style.marginTop = '10px';
 
         // Xóa nội dung cũ và chèn ảnh
-        node.innerHTML = '';
-        node.appendChild(img);
-
         const downloadBtn = document.createElement('a');
-        downloadBtn.textContent = '📥 Tải ảnh xuống';
+        downloadBtn.textContent = '📥 Tải xuống';
         downloadBtn.download = 'Guiloiyeuthuong.png';
         downloadBtn.href = dataUrl;
         downloadBtn.style.display = 'inline-block';
@@ -130,7 +127,9 @@ document.addEventListener("DOMContentLoaded", function () {
         downloadBtn.style.padding = '10px 14px';
         downloadBtn.style.borderRadius = '8px';
         downloadBtn.style.textDecoration = 'none';
+        node.innerHTML = '';
         node.appendChild(downloadBtn);
+        node.appendChild(img);
 
         // Popup hướng dẫn người dùng
         const popup = document.createElement('div');
