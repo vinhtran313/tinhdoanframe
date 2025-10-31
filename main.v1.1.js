@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Ẩn loader
         loaderWrapper.style.display = 'none';
 
-        // Tạo ảnh kết quả
+        // Tạo ảnh xem trước
         const img = new Image();
         img.src = dataUrl;
         img.alt = 'Gửi lời yêu thương';
@@ -114,24 +114,42 @@ document.addEventListener("DOMContentLoaded", function () {
         img.style.borderRadius = '12px';
         img.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
         img.style.marginTop = '10px';
-        node.innerHTML = '';
+
         // Xóa nội dung cũ và chèn ảnh
+        node.innerHTML = '';
         node.appendChild(img);
-        const downloadBtn = document.createElement('a');
-        downloadBtn.textContent = '📥 Tải xuống';
-        downloadBtn.download = 'Guiloiyeuthuong.png';
-        downloadBtn.href = dataUrl;
-        downloadBtn.style.display = 'inline-block';
-        downloadBtn.style.marginTop = '10px';
-        downloadBtn.style.background = '#4CAF50';
-        downloadBtn.style.color = 'white';
-        downloadBtn.style.padding = '10px 14px';
-        downloadBtn.style.borderRadius = '8px';
-        downloadBtn.style.textDecoration = 'none';
 
-        node.appendChild(downloadBtn);
+        // Tạo nút mở trong tab mới
+        const openBtn = document.createElement('button');
+        openBtn.textContent = '📷 Mở ảnh trong tab mới';
+        openBtn.style.display = 'inline-block';
+        openBtn.style.marginTop = '10px';
+        openBtn.style.background = '#4CAF50';
+        openBtn.style.color = 'white';
+        openBtn.style.padding = '10px 14px';
+        openBtn.style.border = 'none';
+        openBtn.style.borderRadius = '8px';
+        openBtn.style.cursor = 'pointer';
+        openBtn.style.fontFamily = 'system-ui, sans-serif';
+        node.appendChild(openBtn);
 
-        // Popup hướng dẫn người dùng
+        // Khi bấm mở tab
+        openBtn.addEventListener('click', function () {
+          try {
+            const win = window.open();
+            if (win) {
+              win.document.write(`<img src="${dataUrl}" alt="Lời yêu thương" style="max-width:100%;height:auto;display:block;margin:auto;"/>`);
+              win.document.title = 'Lời yêu thương';
+            } else {
+              alert('Trình duyệt đã chặn cửa sổ mới. Vui lòng bật cho phép popup.');
+            }
+          } catch (e) {
+            console.error('Không thể mở tab mới:', e);
+            alert('Không thể mở tab mới. Vui lòng thử lại hoặc dùng trình duyệt ngoài.');
+          }
+        });
+
+        // Popup hướng dẫn
         const popup = document.createElement('div');
         popup.innerHTML = `
       <div style="
@@ -156,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ✅ Lời nhắn đã được tạo xong!
           </p>
           <p style="font-size: 14px; color: #555; margin-bottom: 8px;">
-            📷 Nhấn và giữ vào khung lời nhắn hoặc bấm nút tải xuống để tải lời nhắn.
+            📷 Bấm “Mở ảnh trong tab mới” rồi nhấn giữ ảnh để tải hoặc chia sẻ.
           </p>
           <p style="font-size: 13px; color: #777; margin-bottom: 8px;">
             🔄 Nếu muốn tạo thêm lời nhắn mới, hãy tải lại trang.
@@ -205,6 +223,5 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error('Error generating image:', error);
         loaderWrapper.style.display = 'none';
       });
-
   });
 });
