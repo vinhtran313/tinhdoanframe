@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(function (dataUrl) {
         // Ẩn loader
         loaderWrapper.style.display = 'none';
+        dataUrl = "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg"
 
         // Tạo ảnh xem trước
         const img = new Image();
