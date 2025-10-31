@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Tạo ảnh kết quả
         const img = new Image();
         img.src = dataUrl;
-        img.alt = 'Ảnh đã được tạo';
+        img.alt = 'Gửi lời yêu thương';
         img.style.maxWidth = '100%';
         img.style.borderRadius = '12px';
         img.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
@@ -118,6 +118,19 @@ document.addEventListener("DOMContentLoaded", function () {
         // Xóa nội dung cũ và chèn ảnh
         node.innerHTML = '';
         node.appendChild(img);
+
+        const downloadBtn = document.createElement('a');
+        downloadBtn.textContent = '📥 Tải ảnh xuống';
+        downloadBtn.download = 'Guiloiyeuthuong.png';
+        downloadBtn.href = dataUrl;
+        downloadBtn.style.display = 'inline-block';
+        downloadBtn.style.marginTop = '10px';
+        downloadBtn.style.background = '#4CAF50';
+        downloadBtn.style.color = 'white';
+        downloadBtn.style.padding = '10px 14px';
+        downloadBtn.style.borderRadius = '8px';
+        downloadBtn.style.textDecoration = 'none';
+        node.appendChild(downloadBtn);
 
         // Popup hướng dẫn người dùng
         const popup = document.createElement('div');
@@ -141,16 +154,16 @@ document.addEventListener("DOMContentLoaded", function () {
           font-family: system-ui, sans-serif;
         ">
           <p style="font-size: 16px; margin-bottom: 8px;">
-            ✅ Ảnh đã được tạo xong!
+            ✅ Lời nhắn đã được tạo xong!
           </p>
           <p style="font-size: 14px; color: #555; margin-bottom: 8px;">
-            📷 Nhấn và giữ vào khung ảnh để tải xuống.
+            📷 Nhấn và giữ vào khung lời nhắn hoặc bấm nút tải xuống để tải lời nhắn.
           </p>
           <p style="font-size: 13px; color: #777; margin-bottom: 8px;">
             🔄 Nếu muốn tạo thêm lời nhắn mới, hãy tải lại trang.
           </p>
           <p style="font-size: 12px; color: #999; margin-bottom: 12px; line-height: 1.4;">
-            🙏 Xin lỗi vì sự bất tiện — do giới hạn bảo mật của hệ điều hành, ứng dụng không thể tải ảnh trực tiếp.
+            🙏 Xin lỗi vì sự bất tiện — do giới hạn bảo mật của hệ điều hành, ứng dụng không thể tải lời nhắn về máy một cách trực tiếp.
           </p>
           <div style="display: flex; justify-content: center; gap: 10px;">
             <button id="closePopup" style="
