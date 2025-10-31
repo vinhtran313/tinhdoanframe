@@ -101,32 +101,32 @@ document.addEventListener("DOMContentLoaded", function () {
       quality: 1,
     };
 
-    //   domtoimage.toPng(node, options)
-    //     .then(function(dataUrl) {
-    //       return domtoimage.toPng(node, options);
-    //     })
-    //     .then(function(data1) {
-    //       const link = document.createElement('a');
-    //       link.download = 'Guiloiyeuthuong.png';
-    //       link.href = data1;
-    //       document.body.appendChild(link);
-    //       link.click();
-    //       document.body.removeChild(link);
-    //       loaderWrapper.style.display = 'none';
-    //     })
-    //     .catch(function(error) {
-    //       console.error('Error generating image:', error);
-    //       loaderWrapper.style.display = 'none';
-    //     });
-    domtoimage
-      .toBlob(node, options)
-      .then(function (blob) {
-        saveAs(blob, "Guiloiyeuthuong.png");
-        loaderWrapper.style.display = "none";
-      })
-      .catch(function (error) {
-        console.error("Error generating image:", error);
-        loaderWrapper.style.display = "none";
-      });
+      domtoimage.toPng(node, options)
+        .then(function(dataUrl) {
+          return domtoimage.toPng(node, options);
+        })
+        .then(function(data1) {
+          const link = document.createElement('a');
+          link.download = 'Guiloiyeuthuong.png';
+          link.href = data1;
+          document.body.appendChild(link);
+          document.body.removeChild(link);
+          loaderWrapper.style.display = 'none';
+          window.open(link, '_blank').focus();
+        })
+        .catch(function(error) {
+          console.error('Error generating image:', error);
+          loaderWrapper.style.display = 'none';
+        });
+    // domtoimage
+    //   .toBlob(node, options)
+    //   .then(function (blob) {
+    //     // saveAs(blob, "Guiloiyeuthuong.png");
+    //     loaderWrapper.style.display = "none";
+    //   })
+    //   .catch(function (error) {
+    //     console.error("Error generating image:", error);
+    //     loaderWrapper.style.display = "none";
+    //   });
   });
 });
