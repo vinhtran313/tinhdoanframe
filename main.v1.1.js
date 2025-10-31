@@ -101,25 +101,32 @@ document.addEventListener("DOMContentLoaded", function () {
       quality: 1,
     };
 
-    domtoimage.toPng(node, options)
-      .then(function (dataUrl) {
+    domtoimage.toBlob(node, options)
+      .then(function (blob) {
         // Ẩn loader
         loaderWrapper.style.display = 'none';
 
+        // Tạo URL tạm cho Blob
+        const blobUrl = URL.createObjectURL(blob);
+
         // Tạo ảnh kết quả
         const img = new Image();
-        img.src = dataUrl;
+        img.src = blobUrl;
         img.alt = 'Gửi lời yêu thương';
         img.style.maxWidth = '100%';
         img.style.borderRadius = '12px';
         img.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
         img.style.marginTop = '10px';
 
-        // Xóa nội dung cũ và chèn ảnh
+        // Xóa nội dung cũ và chèn ảnh + nút tải xuống
+        node.innerHTML = '';
+        node.appendChild(img);
+
+        // Nút tải xuống
         const downloadBtn = document.createElement('a');
         downloadBtn.textContent = '📥 Tải xuống';
         downloadBtn.download = 'Guiloiyeuthuong.png';
-        downloadBtn.href = dataUrl;
+        downloadBtn.href = blobUrl;
         downloadBtn.style.display = 'inline-block';
         downloadBtn.style.marginTop = '10px';
         downloadBtn.style.background = '#4CAF50';
@@ -127,11 +134,9 @@ document.addEventListener("DOMContentLoaded", function () {
         downloadBtn.style.padding = '10px 14px';
         downloadBtn.style.borderRadius = '8px';
         downloadBtn.style.textDecoration = 'none';
-        node.innerHTML = '';
         node.appendChild(downloadBtn);
-        node.appendChild(img);
 
-        // Popup hướng dẫn người dùng
+        // Popup hướng dẫn
         const popup = document.createElement('div');
         popup.innerHTML = `
       <div style="
@@ -205,6 +210,5 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error('Error generating image:', error);
         loaderWrapper.style.display = 'none';
       });
-
   });
 });
