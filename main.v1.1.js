@@ -101,32 +101,98 @@ document.addEventListener("DOMContentLoaded", function () {
       quality: 1,
     };
 
-      domtoimage.toPng(node, options)
-        .then(function(dataUrl) {
-          return domtoimage.toPng(node, options);
-        })
-        .then(function(data1) {
-          const link = document.createElement('a');
-          link.download = 'Guiloiyeuthuong.png';
-          link.href = data1;
-          document.body.appendChild(link);
-          document.body.removeChild(link);
-          loaderWrapper.style.display = 'none';
-          window.open(link, '_blank').focus();
-        })
-        .catch(function(error) {
-          console.error('Error generating image:', error);
-          loaderWrapper.style.display = 'none';
+    domtoimage.toPng(node, options)
+      .then(function (dataUrl) {
+        // Ẩn loader
+        loaderWrapper.style.display = 'none';
+
+        // Tạo ảnh kết quả
+        const img = new Image();
+        img.src = dataUrl;
+        img.alt = 'Ảnh đã được tạo';
+        img.style.maxWidth = '100%';
+        img.style.borderRadius = '12px';
+        img.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+        img.style.marginTop = '10px';
+
+        // Xóa nội dung cũ và chèn ảnh
+        node.innerHTML = '';
+        node.appendChild(img);
+
+        // Popup hướng dẫn người dùng
+        const popup = document.createElement('div');
+        popup.innerHTML = `
+      <div style="
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      ">
+        <div style="
+          background: white;
+          padding: 20px;
+          border-radius: 12px;
+          text-align: center;
+          max-width: 320px;
+          font-family: system-ui, sans-serif;
+        ">
+          <p style="font-size: 16px; margin-bottom: 8px;">
+            ✅ Ảnh đã được tạo xong!
+          </p>
+          <p style="font-size: 14px; color: #555; margin-bottom: 8px;">
+            📷 Nhấn và giữ vào khung ảnh để tải xuống.
+          </p>
+          <p style="font-size: 13px; color: #777; margin-bottom: 8px;">
+            🔄 Nếu muốn tạo thêm lời nhắn mới, hãy tải lại trang.
+          </p>
+          <p style="font-size: 12px; color: #999; margin-bottom: 12px; line-height: 1.4;">
+            🙏 Xin lỗi vì sự bất tiện — do giới hạn bảo mật của hệ điều hành, ứng dụng không thể tải ảnh trực tiếp.
+          </p>
+          <div style="display: flex; justify-content: center; gap: 10px;">
+            <button id="closePopup" style="
+              background: #4CAF50;
+              color: white;
+              border: none;
+              padding: 8px 14px;
+              border-radius: 6px;
+              cursor: pointer;
+            ">
+              Đã hiểu
+            </button>
+            <button id="reloadPage" style="
+              background: #2196F3;
+              color: white;
+              border: none;
+              padding: 8px 14px;
+              border-radius: 6px;
+              cursor: pointer;
+            ">
+              🔄 Tải lại trang
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+        document.body.appendChild(popup);
+
+        // Đóng popup
+        document.getElementById('closePopup').addEventListener('click', () => {
+          document.body.removeChild(popup);
         });
-    // domtoimage
-    //   .toBlob(node, options)
-    //   .then(function (blob) {
-    //     // saveAs(blob, "Guiloiyeuthuong.png");
-    //     loaderWrapper.style.display = "none";
-    //   })
-    //   .catch(function (error) {
-    //     console.error("Error generating image:", error);
-    //     loaderWrapper.style.display = "none";
-    //   });
+
+        // Tải lại trang
+        document.getElementById('reloadPage').addEventListener('click', () => {
+          location.reload();
+        });
+      })
+      .catch(function (error) {
+        console.error('Error generating image:', error);
+        loaderWrapper.style.display = 'none';
+      });
+
   });
 });
