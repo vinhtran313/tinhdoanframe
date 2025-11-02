@@ -192,9 +192,8 @@ label span:before {
   left: 3%;
   bottom: 20.5%;
   width: 31%;
-  height: 9%;
+  height: 9.5%;
   display: flex;
-  align-items: center;
   justify-content: center;
   font-family: "SVN-Engine";
   font-size: 24px;
@@ -218,7 +217,6 @@ label span:before {
   color: white;
   font-size: 12px;
   display: flex;
-  align-items: center;
   justify-content: center;
   font-family: "SVN Gilroy";
   /* QUAN TRỌNG: Tối ưu hiệu suất render text */
@@ -386,32 +384,14 @@ label span:before {
     background-position: top -10px left 0;
     background-repeat: repeat-y;
   }
-  /* .image-choosen {
-    width: 71px;
-    height: 71px;
-    left: 29px;
-    top: 55px;
-  } */
   .name {
-    /* left: 10px; */
-    /* top: 135px; */
-    /* width: 110px; */
-    /* height: 16px; */
     font-size: 8px;
   }
   .title {
-    /* left: 23px; */
-    /* bottom: 22px; */
-    /* width: 85px; */
-    /* height: 15px; */
     font-size: 4px;
-    /* padding: 1px 2px; */
   }
   .message {
-    /* left: 133px; */
-    /* bottom: 37px; */
-    /* width: 200px; */
-    /* height: 65px; */
+    top: 37%;
     font-size: 7px;
   }
 
