@@ -256,15 +256,15 @@
   submitBtn.addEventListener("click", async () => {
     loaderWrapper.style.display = "flex";
     const node = document.getElementById("frame-wrapper");
-
+    const scaleObject = window.innerWidth < 768 ? 2 : 1;
     const options = {
-      quality: 0.9,
-      width: node.offsetWidth * 2,
-      height: node.offsetHeight * 2,
+      width: node.offsetWidth * scaleObject,
+      height: node.offsetHeight * scaleObject,
       style: {
-        transform: "scale(2)",
+        transform: "scale(" + scaleObject + ")",
         transformOrigin: "top left",
       },
+      quality: 0.85,
     };
 
     try {
