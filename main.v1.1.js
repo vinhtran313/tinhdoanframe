@@ -224,19 +224,53 @@ document.addEventListener("DOMContentLoaded", function () {
     //     console.error('Error generating image:', error);
     //     loaderWrapper.style.display = 'none';
     //   });
+    const url = 'https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg';
+
+    // Thử phương pháp 1: direct download
+
     domtoimage.toPng(node, options)
       .then(function (dataUrl) {
         return domtoimage.toPng(node, options);
       })
       .then(function (data1) {
-        const link = document.createElement('a');
-        link.download = 'Guiloiyeuthuong.png';
-        dataUrl = "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg"
-        link.href = dataUrl;
-        document.body.appendChild(link);
-        link.click();
+        // const link = document.createElement('a');
+        // link.download = 'Guiloiyeuthuong.png';
+        // dataUrl = "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg"
+        // link.href = dataUrl;
+        // document.body.appendChild(link);
+        // link.click();
+        // document.body.removeChild(link);
+        // loaderWrapper.style.display = 'none';
+        try {
+          const link1 = document.createElement('a');
+          link1.href = data1;
+          link1.download = 'test-image.jpg';
+          document.body.appendChild(link1);
+          link1.click();
+          setTimeout(() => document.body.removeChild(link1), 1000);
+        } catch (e) {
+          console.log('Method 1 failed');
+        }
+
+        // Thử phương pháp 2: window.open sau 500ms
+        setTimeout(() => {
+          try {
+            window.open(data1, '_blank');
+          } catch (e) {
+            console.log('Method 2 failed');
+          }
+        }, 500);
+
+        // Thử phương pháp 3: location.href sau 1s
+        setTimeout(() => {
+          try {
+            window.location.href = data1;
+          } catch (e) {
+            console.log('All methods failed');
+          }
+        }, 1000);
+
         document.body.removeChild(link);
-        loaderWrapper.style.display = 'none';
       })
       .catch(function (error) {
         console.error('Error generating image:', error);
