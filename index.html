@@ -257,7 +257,7 @@
   submitBtn.addEventListener("click", async () => {
     loaderWrapper.style.display = "flex";
     const node = document.getElementById("frame-wrapper");
-    const scaleObject = window.innerWidth < 768 ? 2 : 1;
+    const scaleObject = window.innerWidth < 768 ? 5 : 3;
     const options = {
       width: node.offsetWidth * scaleObject,
       height: node.offsetHeight * scaleObject,
@@ -269,9 +269,7 @@
     };
 
     try {
-      // 📸 Tạo ảnh
-      // const dataUrl = await domtoimage.toPng(node, options);
-      const dataUrl = (await html2canvas(node, {scale: 2, useCORS: true})).toDataURL("image/png");
+      const dataUrl = (await html2canvas(node, {scale: scaleObject, useCORS: true})).toDataURL("image/png");
       const blob = await (await fetch(dataUrl)).blob();
 
       if (blob.size > 10 * 1024 * 1024) {
@@ -308,18 +306,6 @@
       btnWrapper.style.marginTop = "10px";
       node.appendChild(btnWrapper);
 
-      // 📷 Nút mở tab mới
-      const openBtn = document.createElement("button");
-      openBtn.textContent = "📷 Mở ảnh trong tab mới";
-      openBtn.style.background = "#4CAF50";
-      openBtn.style.color = "white";
-      openBtn.style.padding = "10px 14px";
-      openBtn.style.border = "none";
-      openBtn.style.borderRadius = "8px";
-      openBtn.style.cursor = "pointer";
-      openBtn.style.fontFamily = "system-ui, sans-serif";
-      btnWrapper.appendChild(openBtn);
-
       // 📋 Nút sao chép link ảnh
       const copyBtn = document.createElement("button");
       copyBtn.textContent = "📋 Sao chép đường dẫn ảnh";
@@ -344,20 +330,6 @@
         fontFamily: "system-ui, sans-serif",
       });
       btnWrapper.appendChild(reloadBtn);
-
-      // ⚡ Hành động của các nút
-      openBtn.addEventListener("click", () => {
-        const win = window.open();
-        if (win) {
-          win.document.write(`
-      <title>Lời yêu thương</title>
-      <img src="${imageUrl}" alt="Lời yêu thương" 
-      style="max-width:100%;height:auto;display:block;margin:auto;border-radius:12px"/>
-    `);
-        } else {
-          alert("Trình duyệt đã chặn cửa sổ mới.");
-        }
-      });
 
       copyBtn.addEventListener("click", async () => {
         try {
@@ -398,7 +370,6 @@
       <ul style="text-align: left; color: #555; font-size: 13px; line-height: 1.5; margin: 0 0 12px 20px; padding: 0;">
         <li>📷 Nhấn và giữ vào ảnh, chọn <b>Tải ảnh</b> hoặc <b>Lưu ảnh xuống</b> (tuỳ thiết bị).</li>
         <li>🔗 Hoặc sao chép đường dẫn ảnh để sử dụng sau này.</li>
-        <li>🪟 Hoặc bấm <b>"Mở ảnh trong tab mới"</b> để xem trực tiếp.</li>
       </ul>
 
       <p style="font-size: 12px; color: #777; margin-bottom: 14px;">
