@@ -101,27 +101,27 @@ document.addEventListener("DOMContentLoaded", function () {
       quality: 1,
     };
 
-    domtoimage.toPng(node, options)
-      .then(function (dataUrl) {
-        // Gửi ảnh lên imgbb
-        const base64Data = dataUrl.replace(/^data:image\/png;base64,/, "");
+    domtoimage.toBlob(node, options)
+      .then(function (blob) {
+        // Tạo form chứa ảnh blob
         const formData = new FormData();
-        formData.append("image", base64Data);
+        formData.append("file", blob, "image.png");
 
-        return fetch(`https://api.imgbb.com/1/upload?key=eb07973ae2294c461019109ef8f6c2a7`, {
+        // Gửi đến 0x0.st
+        return fetch("https://0x0.st", {
           method: "POST",
-          body: formData,
+          body: formData
         });
       })
-      .then(response => response.json())
-      .then(result => {
-        if (!result.success) throw new Error("Upload thất bại!");
+      .then(response => response.text())
+      .then(url => {
+        if (!url.startsWith("http")) throw new Error("Upload thất bại!");
 
-        const imageUrl = result.data.url;
         loaderWrapper.style.display = "none";
 
         // Hiện ảnh kết quả
         const img = new Image();
+        img.src = url.trim();
         img.src = imageUrl;
         img.alt = "Lời yêu thương";
         img.style.maxWidth = "100%";
