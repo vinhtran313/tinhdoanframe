@@ -191,7 +191,7 @@ label span:before {
   position: absolute;
   left: 3%;
   bottom: 19%;
-  width: 32%;
+  width: 31%;
   height: auto;
   display: flex;
   align-items: center;
@@ -213,7 +213,7 @@ label span:before {
   text-align: center;
   left: 3%;
   top: 80%;
-  width: 32%;
+  width: 31%;
   height: auto;
   color: white;
   font-size: 12px;
