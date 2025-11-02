@@ -101,128 +101,148 @@ document.addEventListener("DOMContentLoaded", function () {
       quality: 1,
     };
 
+    // domtoimage.toPng(node, options)
+    //   .then(function (dataUrl) {
+    //     // Ẩn loader
+    //     loaderWrapper.style.display = 'none';
+    //     dataUrl = "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg"
+
+    //     // Tạo ảnh xem trước
+    //     const img = new Image();
+    //     img.src = "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg";
+    //     img.alt = 'Gửi lời yêu thương';
+    //     img.style.maxWidth = '100%';
+    //     img.style.borderRadius = '12px';
+    //     img.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+    //     img.style.marginTop = '10px';
+
+    //     // Xóa nội dung cũ và chèn ảnh
+    //     node.innerHTML = '';
+    //     node.appendChild(img);
+
+    //     // Tạo nút mở trong tab mới
+    //     const openBtn = document.createElement('button');
+    //     openBtn.textContent = '📷 Mở ảnh trong tab mới';
+    //     openBtn.style.display = 'inline-block';
+    //     openBtn.style.marginTop = '10px';
+    //     openBtn.style.background = '#4CAF50';
+    //     openBtn.style.color = 'white';
+    //     openBtn.style.padding = '10px 14px';
+    //     openBtn.style.border = 'none';
+    //     openBtn.style.borderRadius = '8px';
+    //     openBtn.style.cursor = 'pointer';
+    //     openBtn.style.fontFamily = 'system-ui, sans-serif';
+    //     node.appendChild(openBtn);
+
+    //     // Khi bấm mở tab
+    //     openBtn.addEventListener('click', function () {
+    //       try {
+    //         const win = window.open();
+    //         if (win) {
+    //           win.document.write(`<img src="${dataUrl}" alt="Lời yêu thương" style="max-width:100%;height:auto;display:block;margin:auto;"/>`);
+    //           win.document.title = 'Lời yêu thương';
+    //         } else {
+    //           alert('Trình duyệt đã chặn cửa sổ mới. Vui lòng bật cho phép popup.');
+    //         }
+    //       } catch (e) {
+    //         console.error('Không thể mở tab mới:', e);
+    //         alert('Không thể mở tab mới. Vui lòng thử lại hoặc dùng trình duyệt ngoài.');
+    //       }
+    //     });
+
+    //     // Popup hướng dẫn
+    //     const popup = document.createElement('div');
+    //     popup.innerHTML = `
+    //   <div style="
+    //     position: fixed;
+    //     top: 0; left: 0;
+    //     width: 100%; height: 100%;
+    //     background: rgba(0,0,0,0.6);
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     z-index: 9999;
+    //   ">
+    //     <div style="
+    //       background: white;
+    //       padding: 20px;
+    //       border-radius: 12px;
+    //       text-align: center;
+    //       max-width: 320px;
+    //       font-family: system-ui, sans-serif;
+    //     ">
+    //       <p style="font-size: 16px; margin-bottom: 8px;">
+    //         ✅ Lời nhắn đã được tạo xong!
+    //       </p>
+    //       <p style="font-size: 14px; color: #555; margin-bottom: 8px;">
+    //         📷 Bấm “Mở ảnh trong tab mới” rồi nhấn giữ ảnh để tải hoặc chia sẻ.
+    //       </p>
+    //       <p style="font-size: 13px; color: #777; margin-bottom: 8px;">
+    //         🔄 Nếu muốn tạo thêm lời nhắn mới, hãy tải lại trang.
+    //       </p>
+    //       <p style="font-size: 12px; color: #999; margin-bottom: 12px; line-height: 1.4;">
+    //         🙏 Xin lỗi vì sự bất tiện — do giới hạn bảo mật của hệ điều hành, ứng dụng không thể tải lời nhắn về máy một cách trực tiếp.
+    //       </p>
+    //       <div style="display: flex; justify-content: center; gap: 10px;">
+    //         <button id="closePopup" style="
+    //           background: #4CAF50;
+    //           color: white;
+    //           border: none;
+    //           padding: 8px 14px;
+    //           border-radius: 6px;
+    //           cursor: pointer;
+    //         ">
+    //           Đã hiểu
+    //         </button>
+    //         <button id="reloadPage" style="
+    //           background: #2196F3;
+    //           color: white;
+    //           border: none;
+    //           padding: 8px 14px;
+    //           border-radius: 6px;
+    //           cursor: pointer;
+    //         ">
+    //           🔄 Tải lại trang
+    //         </button>
+    //       </div>
+    //     </div>
+    //   </div>
+    // `;
+    //     document.body.appendChild(popup);
+
+    //     // Đóng popup
+    //     document.getElementById('closePopup').addEventListener('click', () => {
+    //       document.body.removeChild(popup);
+    //     });
+
+    //     // Tải lại trang
+    //     document.getElementById('reloadPage').addEventListener('click', () => {
+    //       location.reload();
+    //     });
+    //   })
+    //   .catch(function (error) {
+    //     console.error('Error generating image:', error);
+    //     loaderWrapper.style.display = 'none';
+    //   });
     domtoimage.toPng(node, options)
       .then(function (dataUrl) {
-        // Ẩn loader
-        loaderWrapper.style.display = 'none';
+        return domtoimage.toPng(node, options);
+      })
+      .then(function (data1) {
+        const link = document.createElement('a');
+        link.download = 'Guiloiyeuthuong.png';
         dataUrl = "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg"
-
-        // Tạo ảnh xem trước
-        const img = new Image();
-        img.src = "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg";
-        img.alt = 'Gửi lời yêu thương';
-        img.style.maxWidth = '100%';
-        img.style.borderRadius = '12px';
-        img.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
-        img.style.marginTop = '10px';
-
-        // Xóa nội dung cũ và chèn ảnh
-        node.innerHTML = '';
-        node.appendChild(img);
-
-        // Tạo nút mở trong tab mới
-        const openBtn = document.createElement('button');
-        openBtn.textContent = '📷 Mở ảnh trong tab mới';
-        openBtn.style.display = 'inline-block';
-        openBtn.style.marginTop = '10px';
-        openBtn.style.background = '#4CAF50';
-        openBtn.style.color = 'white';
-        openBtn.style.padding = '10px 14px';
-        openBtn.style.border = 'none';
-        openBtn.style.borderRadius = '8px';
-        openBtn.style.cursor = 'pointer';
-        openBtn.style.fontFamily = 'system-ui, sans-serif';
-        node.appendChild(openBtn);
-
-        // Khi bấm mở tab
-        openBtn.addEventListener('click', function () {
-          try {
-            const win = window.open();
-            if (win) {
-              win.document.write(`<img src="${dataUrl}" alt="Lời yêu thương" style="max-width:100%;height:auto;display:block;margin:auto;"/>`);
-              win.document.title = 'Lời yêu thương';
-            } else {
-              alert('Trình duyệt đã chặn cửa sổ mới. Vui lòng bật cho phép popup.');
-            }
-          } catch (e) {
-            console.error('Không thể mở tab mới:', e);
-            alert('Không thể mở tab mới. Vui lòng thử lại hoặc dùng trình duyệt ngoài.');
-          }
-        });
-
-        // Popup hướng dẫn
-        const popup = document.createElement('div');
-        popup.innerHTML = `
-      <div style="
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.6);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-      ">
-        <div style="
-          background: white;
-          padding: 20px;
-          border-radius: 12px;
-          text-align: center;
-          max-width: 320px;
-          font-family: system-ui, sans-serif;
-        ">
-          <p style="font-size: 16px; margin-bottom: 8px;">
-            ✅ Lời nhắn đã được tạo xong!
-          </p>
-          <p style="font-size: 14px; color: #555; margin-bottom: 8px;">
-            📷 Bấm “Mở ảnh trong tab mới” rồi nhấn giữ ảnh để tải hoặc chia sẻ.
-          </p>
-          <p style="font-size: 13px; color: #777; margin-bottom: 8px;">
-            🔄 Nếu muốn tạo thêm lời nhắn mới, hãy tải lại trang.
-          </p>
-          <p style="font-size: 12px; color: #999; margin-bottom: 12px; line-height: 1.4;">
-            🙏 Xin lỗi vì sự bất tiện — do giới hạn bảo mật của hệ điều hành, ứng dụng không thể tải lời nhắn về máy một cách trực tiếp.
-          </p>
-          <div style="display: flex; justify-content: center; gap: 10px;">
-            <button id="closePopup" style="
-              background: #4CAF50;
-              color: white;
-              border: none;
-              padding: 8px 14px;
-              border-radius: 6px;
-              cursor: pointer;
-            ">
-              Đã hiểu
-            </button>
-            <button id="reloadPage" style="
-              background: #2196F3;
-              color: white;
-              border: none;
-              padding: 8px 14px;
-              border-radius: 6px;
-              cursor: pointer;
-            ">
-              🔄 Tải lại trang
-            </button>
-          </div>
-        </div>
-      </div>
-    `;
-        document.body.appendChild(popup);
-
-        // Đóng popup
-        document.getElementById('closePopup').addEventListener('click', () => {
-          document.body.removeChild(popup);
-        });
-
-        // Tải lại trang
-        document.getElementById('reloadPage').addEventListener('click', () => {
-          location.reload();
-        });
+        link.href = dataUrl;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        loaderWrapper.style.display = 'none';
       })
       .catch(function (error) {
         console.error('Error generating image:', error);
         loaderWrapper.style.display = 'none';
       });
   });
+
+
 });
