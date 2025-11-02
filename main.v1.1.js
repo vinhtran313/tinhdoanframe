@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData();
         formData.append("image", base64Data);
 
-        return fetch(`https://api.imgbb.com/1/upload?key=${eb07973ae2294c461019109ef8f6c2a7}`, {
+        return fetch(`https://api.imgbb.com/1/upload?key=eb07973ae2294c461019109ef8f6c2a7`, {
           method: "POST",
           body: formData,
         });
