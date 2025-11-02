@@ -122,7 +122,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Hiện ảnh kết quả
         const img = new Image();
         img.src = url.trim();
-        img.src = imageUrl;
         img.alt = "Lời yêu thương";
         img.style.maxWidth = "100%";
         img.style.borderRadius = "12px";
@@ -152,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (win) {
               win.document.write(`
                 <title>Lời yêu thương</title>
-                <img src="${dataUrl}" alt="Lời yêu thương" 
+                <img src="${url.trim()}" alt="Lời yêu thương" 
                 style="max-width:100%;height:auto;display:block;margin:auto;"/>
               `);
             } else {
