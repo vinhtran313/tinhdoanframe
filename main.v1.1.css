@@ -190,9 +190,9 @@ label span:before {
 .name {
   position: absolute;
   left: 3%;
-  bottom: 20%;
+  bottom: 20.5%;
   width: 31%;
-  height: 10%;
+  height: 9%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,7 +212,7 @@ label span:before {
   position: absolute;
   text-align: center;
   left: 3%;
-  top: 77%;
+  top: 78%;
   width: 31%;
   height: 10%;
   color: white;
@@ -231,7 +231,7 @@ label span:before {
 .message {
   position: absolute;
   left: 39%;
-  top: 40%;
+  top: 39%;
   width: 50%;
   height: 40.5%;
   font-family: "SVN Gilroy";
