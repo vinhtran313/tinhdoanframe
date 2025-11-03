@@ -198,10 +198,10 @@ label span:before {
 /* QUAN TRỌNG: Tối ưu các phần tử text sẽ thay đổi */
 .name {
   position: absolute;
-  left: 3%;
-  bottom: 20.5%;
-  width: 31%;
-  height: 9.5%;
+  left: 23px;
+  top: 300px;
+  width: 250px;
+  height: 37px;
   display: flex;
   justify-content: center;
   font-family: "Phudu";
@@ -218,12 +218,12 @@ label span:before {
 .title {
   position: absolute;
   text-align: center;
-  left: 3%;
-  top: 78%;
-  width: 31%;
-  height: 11%;
+  left: 23px;
+  top: 333px;
+  width: 250px;
+  height: 46px;
   color: white;
-  font-size: 13px;
+  font-size: 14px;
   display: flex;
   justify-content: center;
   font-family: "Arial";
@@ -390,16 +390,27 @@ label span:before {
   }
 
   .name {
+    left: 11px;
+    top: 133px;
+    width: 110px;
+    height: 13px;
     font-size: 8px;
   }
 
   .title {
-    font-size: 5px;
-    top: 77%;
+    font-size: 6px;
+    top: 144px;
+    left: 11px;
+    width: 110px;
+    height:20px;
   }
 
   .message {
-    font-size: 6px;
+    font-size: 7px;
+    left: 136px;
+    top: 72px;
+    width: 174px;
+    height: 75px;
   }
 
   /* Thêm tối ưu cho mobile */
