@@ -260,7 +260,7 @@
           return domtoimage.toPng(node, options);
         })
         .then(async (data1) => {
-          const response = await fetch(dataUrl);
+          const response = await fetch(data1);
           const blob = await response.blob();
 
           if (blob.size > 10 * 1024 * 1024) {
