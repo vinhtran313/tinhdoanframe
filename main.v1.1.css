@@ -16,6 +16,16 @@
   font-weight: 700;
   font-display: swap;
 }
+@font-face {
+  font-family: "Phudu";
+  src: url("assets/fonts/Phudu-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Arial";
+  src: url("assets/fonts/arial.ttf") format("truetype");
+  font-weight: 400;
+}
 
 @font-face {
   font-family: "UTM LEO XIV";
@@ -195,7 +205,7 @@ label span:before {
   height: 9.5%;
   display: flex;
   justify-content: center;
-  font-family: "SVN-Engine";
+  font-family: "Phudu";
   font-size: 24px;
   letter-spacing: 0.8px;
   color: #fff;
@@ -213,12 +223,12 @@ label span:before {
   left: 3%;
   top: 78%;
   width: 31%;
-  height: 10%;
+  height: 11%;
   color: white;
-  font-size: 12px;
+  font-size: 13px;
   display: flex;
   justify-content: center;
-  font-family: "SVN Gilroy";
+  font-family: "Arial";
   /* QUAN TRỌNG: Tối ưu hiệu suất render text */
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -232,7 +242,7 @@ label span:before {
   top: 39%;
   width: 50%;
   height: 40.5%;
-  font-family: "SVN Gilroy";
+  font-family: "Arial";
   font-size: 14px;
   line-height: 1.2;
   color: #337ab7;
@@ -388,7 +398,7 @@ label span:before {
     font-size: 8px;
   }
   .title {
-    font-size: 4px;
+    font-size: 5px;
   }
   .message {
     top: 37%;
