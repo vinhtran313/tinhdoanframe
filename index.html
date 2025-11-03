@@ -255,86 +255,90 @@
       quality: 1,
     };
     try {
-      const dataUrl = await domtoimage.toPng(node, options);
-      const response = await fetch(dataUrl);
-      const blob = await response.blob();
+      domtoimage.toPng(node, options)
+        .then(function (dataUrl) {
+          return domtoimage.toPng(node, options);
+        })
+        .then(async (data1) => {
+          const response = await fetch(dataUrl);
+          const blob = await response.blob();
 
-      if (blob.size > 10 * 1024 * 1024) {
-        alert("Ảnh quá lớn (trên 10MB)!");
-        loaderWrapper.style.display = "none";
-        return;
-      }
+          if (blob.size > 10 * 1024 * 1024) {
+            alert("Ảnh quá lớn (trên 10MB)!");
+            loaderWrapper.style.display = "none";
+            return;
+          }
 
-      // ☁️ Upload lên Firebase Storage
-      const fileRef = ref(storage, `images/${Date.now()}.png`);
-      await uploadBytes(fileRef, blob);
-      const imageUrl = await getDownloadURL(fileRef);
+          // ☁️ Upload lên Firebase Storage
+          const fileRef = ref(storage, `images/${Date.now()}.png`);
+          await uploadBytes(fileRef, blob);
+          const imageUrl = await getDownloadURL(fileRef);
 
-      loaderWrapper.style.display = "none";
+          loaderWrapper.style.display = "none";
 
-      // 🖼 Hiển thị ảnh
-      const img = new Image();
-      img.src = imageUrl;
-      img.alt = "Lời yêu thương";
-      img.style.maxWidth = "100%";
-      img.style.borderRadius = "12px";
-      img.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)";
-      img.style.marginTop = "10px";
+          // 🖼 Hiển thị ảnh
+          const img = new Image();
+          img.src = imageUrl;
+          img.alt = "Lời yêu thương";
+          img.style.maxWidth = "100%";
+          img.style.borderRadius = "12px";
+          img.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)";
+          img.style.marginTop = "10px";
 
-      node.innerHTML = "";
-      node.appendChild(img);
+          node.innerHTML = "";
+          node.appendChild(img);
 
-      // 📂 Nút mở tab mới
-      const btnWrapper = document.createElement("div");
-      btnWrapper.style.display = "flex";
-      btnWrapper.style.justifyContent = "center";
-      btnWrapper.style.flexWrap = "wrap";
-      btnWrapper.style.gap = "10px";
-      btnWrapper.style.marginTop = "10px";
-      node.appendChild(btnWrapper);
+          // 📂 Nút mở tab mới
+          const btnWrapper = document.createElement("div");
+          btnWrapper.style.display = "flex";
+          btnWrapper.style.justifyContent = "center";
+          btnWrapper.style.flexWrap = "wrap";
+          btnWrapper.style.gap = "10px";
+          btnWrapper.style.marginTop = "10px";
+          node.appendChild(btnWrapper);
 
-      // 📋 Nút sao chép link ảnh
-      const copyBtn = document.createElement("button");
-      copyBtn.textContent = "📋 Sao chép đường dẫn ảnh";
-      copyBtn.style.background = "#9C27B0";
-      copyBtn.style.color = "white";
-      copyBtn.style.padding = "10px 14px";
-      copyBtn.style.border = "none";
-      copyBtn.style.borderRadius = "8px";
-      copyBtn.style.cursor = "pointer";
-      copyBtn.style.fontFamily = "system-ui, sans-serif";
-      btnWrapper.appendChild(copyBtn);
+          // 📋 Nút sao chép link ảnh
+          const copyBtn = document.createElement("button");
+          copyBtn.textContent = "📋 Sao chép đường dẫn ảnh";
+          copyBtn.style.background = "#9C27B0";
+          copyBtn.style.color = "white";
+          copyBtn.style.padding = "10px 14px";
+          copyBtn.style.border = "none";
+          copyBtn.style.borderRadius = "8px";
+          copyBtn.style.cursor = "pointer";
+          copyBtn.style.fontFamily = "system-ui, sans-serif";
+          btnWrapper.appendChild(copyBtn);
 
-      const reloadBtn = document.createElement("button");
-      reloadBtn.textContent = "🔄 Tạo mới";
-      Object.assign(reloadBtn.style, {
-        background: "rgb(243,132,33)",
-        color: "white",
-        padding: "10px 14px",
-        border: "none",
-        borderRadius: "8px",
-        cursor: "pointer",
-        fontFamily: "system-ui, sans-serif",
-      });
-      btnWrapper.appendChild(reloadBtn);
+          const reloadBtn = document.createElement("button");
+          reloadBtn.textContent = "🔄 Tạo mới";
+          Object.assign(reloadBtn.style, {
+            background: "rgb(243,132,33)",
+            color: "white",
+            padding: "10px 14px",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontFamily: "system-ui, sans-serif",
+          });
+          btnWrapper.appendChild(reloadBtn);
 
-      copyBtn.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(imageUrl);
-          copyBtn.textContent = "✅ Đã sao chép!";
-          setTimeout(() => (copyBtn.textContent = "📋 Sao chép đường dẫn ảnh"), 2000);
-        } catch (err) {
-          alert("Không thể sao chép, vui lòng tự copy đường dẫn ảnh.");
-        }
-      });
+          copyBtn.addEventListener("click", async () => {
+            try {
+              await navigator.clipboard.writeText(imageUrl);
+              copyBtn.textContent = "✅ Đã sao chép!";
+              setTimeout(() => (copyBtn.textContent = "📋 Sao chép đường dẫn ảnh"), 2000);
+            } catch (err) {
+              alert("Không thể sao chép, vui lòng tự copy đường dẫn ảnh.");
+            }
+          });
 
-      reloadBtn.addEventListener("click", () => {
-        location.reload();
-      });
+          reloadBtn.addEventListener("click", () => {
+            location.reload();
+          });
 
-      // 🪧 Popup hướng dẫn
-      const popup = document.createElement("div");
-      popup.innerHTML = `
+          // 🪧 Popup hướng dẫn
+          const popup = document.createElement("div");
+          popup.innerHTML = `
   <div style="
     position: fixed;
     top: 0; left: 0;
@@ -377,23 +381,16 @@
       </div>
     </div>
   </div>`;
-
-
-      document.body.appendChild(popup);
-
-      document.getElementById("closePopup").onclick = () => document.body.removeChild(popup);
-      document.getElementById("reloadPage").onclick = () => location.reload();
-
+          document.body.appendChild(popup);
+          document.getElementById("closePopup").onclick = () => document.body.removeChild(popup);
+          document.getElementById("reloadPage").onclick = () => location.reload();
+        })
     } catch (err) {
       console.error("❌ Lỗi tạo ảnh:", err);
       loaderWrapper.style.display = "none";
-
-
       alert("Không thể tạo ảnh, vui lòng thử lại!");
     } finally {
-
     }
-
   });
 </script>
 
