@@ -246,7 +246,6 @@ label span:before {
   font-size: 14px;
   line-height: 1.2;
   color: #337ab7;
-  letter-spacing: 1.2px;
   word-break: break-word;
   hyphens: auto;
   text-align: justify;
@@ -399,6 +398,7 @@ label span:before {
   }
   .title {
     font-size: 5px;
+    top: 77%;
   }
   .message {
     top: 37%;
