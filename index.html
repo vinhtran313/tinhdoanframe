@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chào mừng Đại hội Đại biểu Đoàn TNCS Hồ Chí Minh tỉnh Nghệ An lần thứ XIX, nhiệm kỳ 2025 - 2030</title>
+  <title>Chào mừng Đại hội đại biểu Đoàn TNCS Hồ Chí Minh tỉnh Nghệ An lần thứ XIX, nhiệm kỳ 2025 - 2030</title>
   <meta property="og:title"
-    content="Chào mừng đại hội đại biểu hội LHTN Việt Nam tỉnh Nghệ An lần thứ VII, nhiệm kỳ 2024 - 2029" />
+    content="Chào mừng Đại hội đại biểu Đoàn TNCS Hồ Chí Minh tỉnh Nghệ An lần thứ XIX, nhiệm kỳ 2025 - 2030" />
   <meta property="og:description"
-    content="Chào mừng đại hội đại biểu hội LHTN Việt Nam tỉnh Nghệ An lần thứ VII, nhiệm kỳ 2024 - 2029" />
+    content="Chào mừng Đại hội đại biểu Đoàn TNCS Hồ Chí Minh tỉnh Nghệ An lần thứ XIX, nhiệm kỳ 2025 - 2030" />
   <meta property="og:image"
-    content="https://tinhdoannghean.vn/wp-content/uploads/logo_doan.png" />
+    content="https://tinhdoannghean.vn/wp-content/uploads/z7185959737439_12ec69de1ee9cd2d3c5fe574dcddc806.jpg" />
   <meta property="og:url" content="http://tinhdoannghean.vn/guiloiyeuthuongtoidaihoi/" />
   <meta property="og:type" content="website" />
 
@@ -20,6 +20,9 @@
     integrity="sha512-UtLOu9C7NuThQhuXXrGwx9Jb/z9zPQJctuAgNUBK3Z6kkSYT9wJ+2+dh6klS+TDBCV9kNPBbAxbVD+vCcfGPaA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"
+    integrity="sha512-wUa0ktp10dgVVhWdRVfcUO4vHS0ryT42WOEcXjVVF2+2rcYBKTY7Yx7JCEzjWgPV+rj2EDUr8TwsoWF6IoIOPg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="main.v1.1.css">
 
 </head>
@@ -110,13 +113,11 @@
   integrity="sha512-JyCZjCOZoyeQZSd5+YEAcFgz2fowJ1F1hyJOXgtKu4llIa0KneLcidn5bwfutiehUTiOuK87A986BZJMko0eWQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- <script src="main.v1.1.js"></script> -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
   import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
   import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
 
-  // 🔧 Cấu hình Firebase của bạn
   const firebaseConfig = {
     apiKey: "AIzaSyANubrv3SgXf7WAJpAOh05uU9xbCNhwDD0",
     authDomain: "diachidotinhdoan.firebaseapp.com",
@@ -126,17 +127,14 @@
     appId: "1:100623490038:web:0b5f5e5a8f0851953945d7"
   };
 
-  // 🔥 Khởi tạo Firebase
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const storage = getStorage(app);
 
-  // ⚙️ Đăng nhập ẩn danh
   signInAnonymously(auth)
     .then(() => console.log("✅ Anonymous login thành công"))
     .catch((error) => console.error("❌ Lỗi đăng nhập:", error));
 
-  // 🚀 Hàm upload ảnh
   async function uploadImage(file) {
     if (!file) return alert("Chưa chọn ảnh!");
 
@@ -179,7 +177,6 @@
     }
   }
 
-  // Image cropper functionality
   imageChoose.addEventListener("change", function () {
     const files = this.files;
     if (files.length > 0) {
@@ -222,7 +219,6 @@
     }
   });
 
-  // Text input handlers
   nameInput.addEventListener("input", function () {
     const nameContent = document.querySelector(".name-content");
     if (nameContent) {
@@ -244,11 +240,10 @@
     }
   });
   await signInAnonymously(auth).catch(console.error);
-  // Submit handler
   submitBtn.addEventListener("click", async () => {
     loaderWrapper.style.display = "flex";
     const node = document.getElementById("frame-wrapper");
-    
+
     const scaleObject = window.innerWidth < 768 ? 5 : 3;
     const options = {
       width: node.offsetWidth * scaleObject,
@@ -257,12 +252,12 @@
         transform: "scale(" + scaleObject + ")",
         transformOrigin: "top left",
       },
-      quality: 0.85,
+      quality: 1,
     };
-
     try {
-      const dataUrl = (await html2canvas(node, {scale: scaleObject, useCORS: true})).toDataURL("image/png");
-      const blob = await (await fetch(dataUrl)).blob();
+      const dataUrl = await domtoimage.toPng(node, options);
+      const response = await fetch(dataUrl);
+      const blob = await response.blob();
 
       if (blob.size > 10 * 1024 * 1024) {
         alert("Ảnh quá lớn (trên 10MB)!");
@@ -392,7 +387,11 @@
     } catch (err) {
       console.error("❌ Lỗi tạo ảnh:", err);
       loaderWrapper.style.display = "none";
+
+
       alert("Không thể tạo ảnh, vui lòng thử lại!");
+    } finally {
+
     }
 
   });

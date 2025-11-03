@@ -10,17 +10,20 @@
   font-weight: 700;
   font-display: swap;
 }
+
 @font-face {
   font-family: "SVN-Gilroy";
   src: url("assets/fonts/SVN-Gilroy Bold.otf") format("opentype");
   font-weight: 700;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Phudu";
   src: url("assets/fonts/Phudu-Bold.ttf") format("truetype");
   font-weight: 700;
 }
+
 @font-face {
   font-family: "Arial";
   src: url("assets/fonts/arial.ttf") format("truetype");
@@ -126,14 +129,12 @@ label span:before {
   inset: 0;
   z-index: -1;
   margin: -2px;
-  background: linear-gradient(
-    90deg,
-    #2b3990 0%,
-    #254c9f 28%,
-    #1d5faf 37.15%,
-    #139fdc 47.42%,
-    #00aeef 100%
-  );
+  background: linear-gradient(90deg,
+      #2b3990 0%,
+      #254c9f 28%,
+      #1d5faf 37.15%,
+      #139fdc 47.42%,
+      #00aeef 100%);
   border-radius: inherit;
 }
 
@@ -142,14 +143,12 @@ label span:before {
   display: inline-block;
   border-radius: 8px;
   padding: 2px;
-  background: linear-gradient(
-    90deg,
-    #2b3990 0%,
-    #254c9f 28%,
-    #1d5faf 37.15%,
-    #139fdc 47.42%,
-    #00aeef 100%
-  );
+  background: linear-gradient(90deg,
+      #2b3990 0%,
+      #254c9f 28%,
+      #1d5faf 37.15%,
+      #139fdc 47.42%,
+      #00aeef 100%);
   /* QUAN TRỌNG: Thêm GPU acceleration */
   transform: translateZ(0);
   will-change: transform;
@@ -210,7 +209,6 @@ label span:before {
   letter-spacing: 0.8px;
   color: #fff;
   font-weight: 700;
-  /* QUAN TRỌNG: Tối ưu hiệu suất render text */
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: contents;
@@ -229,7 +227,6 @@ label span:before {
   display: flex;
   justify-content: center;
   font-family: "Arial";
-  /* QUAN TRỌNG: Tối ưu hiệu suất render text */
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: contents;
@@ -238,18 +235,17 @@ label span:before {
 
 .message {
   position: absolute;
-  left: 39%;
-  top: 39%;
-  width: 50%;
-  height: 40.5%;
+  left: 310px;
+  top: 162px;
+  width: 400px;
+  height: 172px;
   font-family: "Arial";
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.2;
   color: #337ab7;
   word-break: break-word;
   hyphens: auto;
   text-align: justify;
-  /* QUAN TRỌNG: Tối ưu hiệu suất render text */
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: contents;
@@ -257,12 +253,12 @@ label span:before {
 }
 
 .name {
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
 }
 
 .title {
-  overflow: hidden;
+  overflow: visible;
   white-space: normal;
 }
 
@@ -296,6 +292,7 @@ label span:before {
 }
 
 @keyframes mulShdSpin {
+
   0%,
   100% {
     box-shadow: 0em -2.6em 0em 0em #ffffff,
@@ -381,28 +378,28 @@ label span:before {
 
 @media only screen and (max-width: 600px) {
   .main-wrapper {
-    background: linear-gradient(
-      60deg,
-      #2b3990 0%,
-      #3f5ba5 25%,
-      #5792c6 50%,
-      #00aeef 100%
-    );
+    background: linear-gradient(60deg,
+        #2b3990 0%,
+        #3f5ba5 25%,
+        #5792c6 50%,
+        #00aeef 100%);
     min-height: auto;
     background-size: contain;
     background-position: top -10px left 0;
     background-repeat: repeat-y;
   }
+
   .name {
     font-size: 8px;
   }
+
   .title {
     font-size: 5px;
     top: 77%;
   }
+
   .message {
-    top: 37%;
-    font-size: 7px;
+    font-size: 6px;
   }
 
   /* Thêm tối ưu cho mobile */
@@ -412,4 +409,5 @@ label span:before {
     transform: translateZ(0);
     backface-visibility: hidden;
   }
+
 }
