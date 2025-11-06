@@ -1,344 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chào mừng Đại hội đại biểu Đoàn TNCS Hồ Chí Minh tỉnh Nghệ An lần thứ XIX, nhiệm kỳ 2025 - 2030</title>
-  <meta property="og:title"
-    content="Chào mừng Đại hội đại biểu Đoàn TNCS Hồ Chí Minh tỉnh Nghệ An lần thứ XIX, nhiệm kỳ 2025 - 2030" />
-  <meta property="og:description"
-    content="Chào mừng Đại hội đại biểu Đoàn TNCS Hồ Chí Minh tỉnh Nghệ An lần thứ XIX, nhiệm kỳ 2025 - 2030" />
-  <meta property="og:image"
-    content="https://tinhdoannghean.vn/wp-content/uploads/z7185959737439_12ec69de1ee9cd2d3c5fe574dcddc806.jpg" />
-  <meta property="og:url" content="http://tinhdoannghean.vn/guiloiyeuthuongtoidaihoidoan/" />
-  <meta property="og:type" content="website" />
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chào mừng Đại hội đại biểu Đoàn TNCS Hồ Chí Minh tỉnh Nghệ An lần thứ XIX, nhiệm kỳ 2025 - 2030</title>
+    <meta property="og:title"
+      content="Chào mừng Đại hội đại biểu Đoàn TNCS Hồ Chí Minh tỉnh Nghệ An lần thứ XIX, nhiệm kỳ 2025 - 2030" />
+    <meta property="og:description"
+      content="Chào mừng Đại hội đại biểu Đoàn TNCS Hồ Chí Minh tỉnh Nghệ An lần thứ XIX, nhiệm kỳ 2025 - 2030" />
+    <meta property="og:image"
+      content="https://tinhdoannghean.vn/wp-content/uploads/z7185959737439_12ec69de1ee9cd2d3c5fe574dcddc806.jpg" />
+    <meta property="og:url" content="http://tinhdoannghean.vn/guiloiyeuthuongtoidaihoidoan/" />
+    <meta property="og:type" content="website" />
 
-  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css"
-    integrity="sha512-UtLOu9C7NuThQhuXXrGwx9Jb/z9zPQJctuAgNUBK3Z6kkSYT9wJ+2+dh6klS+TDBCV9kNPBbAxbVD+vCcfGPaA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"
-    integrity="sha512-wUa0ktp10dgVVhWdRVfcUO4vHS0ryT42WOEcXjVVF2+2rcYBKTY7Yx7JCEzjWgPV+rj2EDUr8TwsoWF6IoIOPg=="
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css"
+      integrity="sha512-UtLOu9C7NuThQhuXXrGwx9Jb/z9zPQJctuAgNUBK3Z6kkSYT9wJ+2+dh6klS+TDBCV9kNPBbAxbVD+vCcfGPaA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"
+      integrity="sha512-wUa0ktp10dgVVhWdRVfcUO4vHS0ryT42WOEcXjVVF2+2rcYBKTY7Yx7JCEzjWgPV+rj2EDUr8TwsoWF6IoIOPg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="main.v1.1.css">
+
+  </head>
+
+  <body>
+    <div class=" main-wrapper">
+      <div
+        class="flex max-w-[1200px] mx-auto items-center justify-between pt-[30px] sm:py-[20px] gap-[16px] sm:gap-[32px] px-[16px]">
+        <img src="assets/huyhieudoan.png" class="sm:w-[90px] w-[32px]" />
+        <div class="flex1">
+          <img src="assets/chudaihoi.png" class="w-full" />
+        </div>
+      </div>
+      <div class="sm:pt-[30px] pt-[20px] mx-auto flex justify-center ">
+        <div class="flex sm:gap-[50px] gap-[20px] max-w-[1200px] flex-col sm:flex-row">
+          <div class="input-place flex flex-col gap-[10px] sm:w-[350px] w-full">
+            <div class="input-group mb-[10px]">
+              <label for="image-choose" class="text-white cursor-pointer">
+                <span class="cursor-pointer">
+                  Chọn ảnh
+                </span>
+              </label>
+              <input type="file" id="image-choose" name="avatar" accept="image/*" class="hidden" />
+            </div>
+            <div class="input-group flex flex-col gap-[10px]">
+              <label for="name" class="text-white">
+                <span>Họ và tên</span>
+              </label>
+              <div class="gradient-border-wrapper">
+                <input type="text" id="name" class="gradient-border h-[40px]" placeholder="Họ và tên..." />
+              </div>
+            </div>
+            <div class="input-group flex flex-col gap-[10px]">
+              <label for="title" class="text-white">
+                <span>Chức vụ</span>
+              </label>
+              <div class="gradient-border-wrapper">
+                <textarea type="text" id="title" class=" gradient-border" placeholder="Chức vụ..." rows="2"></textarea>
+              </div>
+            </div>
+            <div class="input-group flex flex-col gap-[10px]">
+              <label for="message" class="text-white">
+                <span>Gửi lời nhắn đến đại hội</span>
+              </label>
+              <div class="gradient-border-wrapper">
+                <textarea id="message" rows="5" class="gradient-border" placeholder="Lời nhắn..."></textarea>
+              </div>
+            </div>
+            <div class="input-group flex flex-col gap-[10px]">
+              <div class="gradient-border-wrapper cursor-pointer">
+                <button id="submit" rows="5" class="gradient-border text-white font-bold">Tạo lời nhắn</button>
+              </div>
+            </div>
+          </div>
+          <div class="frame-wrapper sm:max-w-[800px] sm:w-[800px] max-w-[350px] w-[350px]" id="frame-wrapper">
+            <img src="assets/daihoitncs.png" alt="" class="w-full">
+            <div class="name">
+              <span class="name-content"></span>
+            </div>
+            <div class="title">
+              <span class="title-content"></span>
+            </div>
+            <div class="image-choosen">
+              <img id="img-choosen" src="assets/placeholder.jpg" alt="" class="w-full h-full" />
+            </div>
+            <div class="message">
+              <p class="message-content"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="cropperModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 class="text-2xl mb-4">Cắt ảnh</h2>
+        <div class="relative w-full h-96">
+          <img id="cropperImage" src="" alt="Cropper Image" class="absolute top-0 left-0 w-full h-full">
+        </div>
+        <button id="saveCroppedImage" class="mt-5 bg-blue-500 text-white py-2 px-4 rounded">Lưu</button>
+      </div>
+    </div>
+    <div class="loader-wrapper" style="display: none;">
+      <div id="loader" class="loader"></div>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"
+    integrity="sha512-JyCZjCOZoyeQZSd5+YEAcFgz2fowJ1F1hyJOXgtKu4llIa0KneLcidn5bwfutiehUTiOuK87A986BZJMko0eWQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link rel="stylesheet" href="main.v1.1.css">
 
-</head>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+    import {
+      getStorage,
+      ref,
+      uploadBytes,
+      getDownloadURL,
+      listAll,
+      getMetadata,
+      deleteObject  // ← Thêm import này
+    } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
 
-<body>
-  <div class=" main-wrapper">
-    <div
-      class="flex max-w-[1200px] mx-auto items-center justify-between pt-[30px] sm:py-[20px] gap-[16px] sm:gap-[32px] px-[16px]">
-      <img src="assets/huyhieudoan.png" class="sm:w-[90px] w-[32px]" />
-      <div class="flex1">
-        <img src="assets/chudaihoi.png" class="w-full" />
-      </div>
-    </div>
-    <div class="sm:pt-[30px] pt-[20px] mx-auto flex justify-center ">
-      <div class="flex sm:gap-[50px] gap-[20px] max-w-[1200px] flex-col sm:flex-row">
-        <div class="input-place flex flex-col gap-[10px] sm:w-[350px] w-full">
-          <div class="input-group mb-[10px]">
-            <label for="image-choose" class="text-white cursor-pointer">
-              <span class="cursor-pointer">
-                Chọn ảnh
-              </span>
-            </label>
-            <input type="file" id="image-choose" name="avatar" accept="image/*" class="hidden" />
-          </div>
-          <div class="input-group flex flex-col gap-[10px]">
-            <label for="name" class="text-white">
-              <span>Họ và tên</span>
-            </label>
-            <div class="gradient-border-wrapper">
-              <input type="text" id="name" class="gradient-border h-[40px]" placeholder="Họ và tên..." />
-            </div>
-          </div>
-          <div class="input-group flex flex-col gap-[10px]">
-            <label for="title" class="text-white">
-              <span>Chức vụ</span>
-            </label>
-            <div class="gradient-border-wrapper">
-              <textarea type="text" id="title" class=" gradient-border" placeholder="Chức vụ..." rows="2"></textarea>
-            </div>
-          </div>
-          <div class="input-group flex flex-col gap-[10px]">
-            <label for="message" class="text-white">
-              <span>Gửi lời nhắn đến đại hội</span>
-            </label>
-            <div class="gradient-border-wrapper">
-              <textarea id="message" rows="5" class="gradient-border" placeholder="Lời nhắn..."></textarea>
-            </div>
-          </div>
-          <div class="input-group flex flex-col gap-[10px]">
-            <div class="gradient-border-wrapper cursor-pointer">
-              <button id="submit" rows="5" class="gradient-border text-white font-bold">Tạo lời nhắn</button>
-            </div>
-          </div>
-        </div>
-        <div class="frame-wrapper sm:max-w-[800px] sm:w-[800px] max-w-[350px] w-[350px]" id="frame-wrapper">
-          <img src="assets/daihoitncs.png" alt="" class="w-full">
-          <div class="name">
-            <span class="name-content"></span>
-          </div>
-          <div class="title">
-            <span class="title-content"></span>
-          </div>
-          <div class="image-choosen">
-            <img id="img-choosen" src="assets/placeholder.jpg" alt="" class="w-full h-full" />
-          </div>
-          <div class="message">
-            <p class="message-content"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="cropperModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 class="text-2xl mb-4">Cắt ảnh</h2>
-      <div class="relative w-full h-96">
-        <img id="cropperImage" src="" alt="Cropper Image" class="absolute top-0 left-0 w-full h-full">
-      </div>
-      <button id="saveCroppedImage" class="mt-5 bg-blue-500 text-white py-2 px-4 rounded">Lưu</button>
-    </div>
-  </div>
-  <div class="loader-wrapper" style="display: none;">
-    <div id="loader" class="loader"></div>
-  </div>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"
-  integrity="sha512-JyCZjCOZoyeQZSd5+YEAcFgz2fowJ1F1hyJOXgtKu4llIa0KneLcidn5bwfutiehUTiOuK87A986BZJMko0eWQ=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-  import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-  import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyANubrv3SgXf7WAJpAOh05uU9xbCNhwDD0",
-    authDomain: "diachidotinhdoan.firebaseapp.com",
-    projectId: "diachidotinhdoan",
-    storageBucket: "diachidotinhdoan.appspot.com",
-    messagingSenderId: "100623490038",
-    appId: "1:100623490038:web:0b5f5e5a8f0851953945d7"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const storage = getStorage(app);
-
-  signInAnonymously(auth)
-    .then(() => console.log("✅ Anonymous login thành công"))
-    .catch((error) => console.error("❌ Lỗi đăng nhập:", error));
-
-  async function uploadImage(file) {
-    if (!file) return alert("Chưa chọn ảnh!");
-
-    if (file.size > 10 * 1024 * 1024) {
-      alert("Ảnh quá 10MB!");
-      return;
-    }
-
-    const fileName = `images/${Date.now()}_${file.name}`;
-    const fileRef = ref(storage, fileName);
-
-    try {
-      await uploadBytes(fileRef, file);
-      const url = await getDownloadURL(fileRef);
-      console.log("✅ Upload thành công:", url);
-      alert("Ảnh đã upload:\n" + url);
-    } catch (err) {
-      console.error("❌ Upload lỗi:", err);
-      alert("Upload thất bại!");
-    }
-  }
-  let cropper;
-  const imageChoose = document.getElementById("image-choose");
-  const imgChoosen = document.getElementById("img-choosen");
-  const cropperImage = document.getElementById("cropperImage");
-  const cropperModal = document.getElementById("cropperModal");
-  const saveCroppedImage = document.getElementById("saveCroppedImage");
-  const closeModal = document.querySelector(".close");
-  const nameInput = document.getElementById("name");
-  const titleInput = document.getElementById("title");
-  const messageInput = document.getElementById("message");
-  const submitBtn = document.getElementById("submit");
-  const loaderWrapper = document.querySelector(".loader-wrapper");
-
-  function resetInput() {
-    imageChoose.value = "";
-    if (cropper) {
-      cropper.destroy();
-      cropper = null;
-    }
-  }
-
-  imageChoose.addEventListener("change", function () {
-    const files = this.files;
-    if (files.length > 0) {
-      const file = files[0];
-      const reader = new FileReader();
-      reader.onload = function (event) {
-        cropperImage.src = event.target.result;
-        cropperModal.style.display = "block";
-        if (cropper) {
-          cropper.destroy();
-        }
-        cropper = new Cropper(cropperImage, {
-          aspectRatio: 1,
-          viewMode: 1,
-        });
-      };
-      reader.readAsDataURL(file);
-    }
-  });
-
-  saveCroppedImage.addEventListener("click", function () {
-    if (cropper) {
-      const canvas = cropper.getCroppedCanvas();
-      const base64encodedImage = canvas.toDataURL("image/jpeg");
-      imgChoosen.src = base64encodedImage;
-      cropperModal.style.display = "none";
-      resetInput();
-    }
-  });
-
-  closeModal.addEventListener("click", function () {
-    cropperModal.style.display = "none";
-    resetInput();
-  });
-
-  window.addEventListener("click", function (event) {
-    if (event.target === cropperModal) {
-      cropperModal.style.display = "none";
-      resetInput();
-    }
-  });
-
-  nameInput.addEventListener("input", function () {
-    const nameContent = document.querySelector(".name-content");
-    if (nameContent) {
-      nameContent.textContent = this.value;
-    }
-  });
-
-  titleInput.addEventListener("input", function () {
-    const titleContent = document.querySelector(".title-content");
-    if (titleContent) {
-      titleContent.innerHTML = this.value.replace(/\n/g, "<br>");
-    }
-  });
-
-  messageInput.addEventListener("input", function () {
-    const messageContent = document.querySelector(".message-content");
-    if (messageContent) {
-      messageContent.textContent = this.value;
-    }
-  });
-  await signInAnonymously(auth).catch(console.error);
-  submitBtn.addEventListener("click", async () => {
-    loaderWrapper.style.display = "flex";
-    const node = document.getElementById("frame-wrapper");
-
-    const scaleObject = window.innerWidth < 768 ? 5 : 3;
-    const options = {
-      width: node.offsetWidth * scaleObject,
-      height: node.offsetHeight * scaleObject,
-      style: {
-        transform: "scale(" + scaleObject + ")",
-        transformOrigin: "top left",
-      },
-      quality: 1,
+    const firebaseConfig = {
+      apiKey: "AIzaSyANubrv3SgXf7WAJpAOh05uU9xbCNhwDD0",
+      authDomain: "diachidotinhdoan.firebaseapp.com",
+      projectId: "diachidotinhdoan",
+      storageBucket: "diachidotinhdoan.appspot.com",
+      messagingSenderId: "100623490038",
+      appId: "1:100623490038:web:0b5f5e5a8f0851953945d7"
     };
-    try {
-      domtoimage.toPng(node, options)
-        .then(function (dataUrl) {
-          return domtoimage.toPng(node, options);
-        })
-        .then(async (data1) => {
-          const response = await fetch(data1);
-          const blob = await response.blob();
 
-          if (blob.size > 10 * 1024 * 1024) {
-            alert("Ảnh quá lớn (trên 10MB)!");
-            loaderWrapper.style.display = "none";
-            return;
-          }
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const storage = getStorage(app);
 
-          // ☁️ Upload lên Firebase Storage
-          const fileRef = ref(storage, `images/${Date.now()}.png`);
-          await uploadBytes(fileRef, blob);
-          const imageUrl = await getDownloadURL(fileRef);
+    signInAnonymously(auth)
+      .then(() => console.log("✅ Anonymous login thành công"))
+      .catch((error) => console.error("❌ Lỗi đăng nhập:", error));
 
-          loaderWrapper.style.display = "none";
+    // import { ref, listAll, getMetadata, deleteObject } from "firebase/storage";
 
-          // 🖼 Hiển thị ảnh
-          const img = new Image();
-          img.src = imageUrl;
-          img.alt = "Lời yêu thương";
-          img.style.maxWidth = "100%";
-          img.style.borderRadius = "12px";
-          img.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)";
-          img.style.marginTop = "10px";
+    async function cleanupOldImages() {
+      try {
+        const oneMinuteAgo = Date.now() - 15 * 60 * 1000; // 1 phút trước
+        const storageRef = ref(storage, 'images');
+        const listResult = await listAll(storageRef);
+        console.log(listResult)
 
-          node.innerHTML = "";
-          node.appendChild(img);
+        // Dùng map để chạy song song, tránh chờ từng cái
+        const deletePromises = listResult.items.map(async (itemRef) => {
+          try {
+            const metadata = await getMetadata(itemRef);
+            if (!metadata.timeCreated) return;
 
-          // 📂 Nút mở tab mới
-          const btnWrapper = document.createElement("div");
-          btnWrapper.style.display = "flex";
-          btnWrapper.style.justifyContent = "center";
-          btnWrapper.style.flexWrap = "wrap";
-          btnWrapper.style.gap = "10px";
-          btnWrapper.style.marginTop = "10px";
-          node.appendChild(btnWrapper);
+            const createdAt = new Date(metadata.timeCreated).getTime();
 
-          // 📋 Nút sao chép link ảnh
-          const copyBtn = document.createElement("button");
-          copyBtn.textContent = "📋 Sao chép đường dẫn ảnh";
-          copyBtn.style.background = "#9C27B0";
-          copyBtn.style.color = "white";
-          copyBtn.style.padding = "10px 14px";
-          copyBtn.style.border = "none";
-          copyBtn.style.borderRadius = "8px";
-          copyBtn.style.cursor = "pointer";
-          copyBtn.style.fontFamily = "system-ui, sans-serif";
-          btnWrapper.appendChild(copyBtn);
-
-          const reloadBtn = document.createElement("button");
-          reloadBtn.textContent = "🔄 Tạo mới";
-          Object.assign(reloadBtn.style, {
-            background: "rgb(243,132,33)",
-            color: "white",
-            padding: "10px 14px",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-            fontFamily: "system-ui, sans-serif",
-          });
-          btnWrapper.appendChild(reloadBtn);
-
-          copyBtn.addEventListener("click", async () => {
-            try {
-              await navigator.clipboard.writeText(imageUrl);
-              copyBtn.textContent = "✅ Đã sao chép!";
-              setTimeout(() => (copyBtn.textContent = "📋 Sao chép đường dẫn ảnh"), 2000);
-            } catch (err) {
-              alert("Không thể sao chép, vui lòng tự copy đường dẫn ảnh.");
+            if (createdAt < oneMinuteAgo) {
+              await deleteObject(itemRef);
+              console.log(`🗑️ Xóa ảnh: ${itemRef.name}`);
             }
-          });
+          } catch (err) {
+            console.warn(`⚠️ Không thể xử lý ${itemRef.name}:`, err);
+          }
+        });
 
-          reloadBtn.addEventListener("click", () => {
-            location.reload();
-          });
+        await Promise.all(deletePromises);
+        console.log("✅ Dọn dẹp hoàn tất.");
 
-          // 🪧 Popup hướng dẫn
-          const popup = document.createElement("div");
-          popup.innerHTML = `
+      } catch (error) {
+        console.error("❌ Lỗi khi xóa ảnh:", error);
+      }
+    }
+
+    async function uploadImage(file) {
+      if (!file) return alert("Chưa chọn ảnh!");
+
+      if (file.size > 10 * 1024 * 1024) {
+        alert("Ảnh quá 10MB!");
+        return;
+      }
+
+      const fileName = `images/${Date.now()}_${file.name}`;
+      const fileRef = ref(storage, fileName);
+
+      try {
+        await uploadBytes(fileRef, file);
+        const url = await getDownloadURL(fileRef);
+        console.log("✅ Upload thành công:", url);
+        alert("Ảnh đã upload:\n" + url);
+      } catch (err) {
+        console.error("❌ Upload lỗi:", err);
+        alert("Upload thất bại!");
+      }
+    }
+    let cropper;
+    const imageChoose = document.getElementById("image-choose");
+    const imgChoosen = document.getElementById("img-choosen");
+    const cropperImage = document.getElementById("cropperImage");
+    const cropperModal = document.getElementById("cropperModal");
+    const saveCroppedImage = document.getElementById("saveCroppedImage");
+    const closeModal = document.querySelector(".close");
+    const nameInput = document.getElementById("name");
+    const titleInput = document.getElementById("title");
+    const messageInput = document.getElementById("message");
+    const submitBtn = document.getElementById("submit");
+    const loaderWrapper = document.querySelector(".loader-wrapper");
+
+    function resetInput() {
+      imageChoose.value = "";
+      if (cropper) {
+        cropper.destroy();
+        cropper = null;
+      }
+    }
+
+    imageChoose.addEventListener("change", function () {
+      const files = this.files;
+      if (files.length > 0) {
+        const file = files[0];
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          cropperImage.src = event.target.result;
+          cropperModal.style.display = "block";
+          if (cropper) {
+            cropper.destroy();
+          }
+          cropper = new Cropper(cropperImage, {
+            aspectRatio: 1,
+            viewMode: 1,
+          });
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    saveCroppedImage.addEventListener("click", function () {
+      if (cropper) {
+        const canvas = cropper.getCroppedCanvas();
+        const base64encodedImage = canvas.toDataURL("image/jpeg");
+        imgChoosen.src = base64encodedImage;
+        cropperModal.style.display = "none";
+        resetInput();
+      }
+    });
+
+    closeModal.addEventListener("click", function () {
+      cropperModal.style.display = "none";
+      resetInput();
+    });
+
+    window.addEventListener("click", function (event) {
+      if (event.target === cropperModal) {
+        cropperModal.style.display = "none";
+        resetInput();
+      }
+    });
+
+    nameInput.addEventListener("input", function () {
+      const nameContent = document.querySelector(".name-content");
+      if (nameContent) {
+        nameContent.textContent = this.value;
+      }
+    });
+
+    titleInput.addEventListener("input", function () {
+      const titleContent = document.querySelector(".title-content");
+      if (titleContent) {
+        titleContent.innerHTML = this.value.replace(/\n/g, "<br>");
+      }
+    });
+
+    messageInput.addEventListener("input", function () {
+      const messageContent = document.querySelector(".message-content");
+      if (messageContent) {
+        messageContent.textContent = this.value;
+      }
+    });
+    await signInAnonymously(auth).catch(console.error);
+    submitBtn.addEventListener("click", async () => {
+      loaderWrapper.style.display = "flex";
+      const node = document.getElementById("frame-wrapper");
+
+      const scaleObject = window.innerWidth < 768 ? 5 : 3;
+      const options = {
+        width: node.offsetWidth * scaleObject,
+        height: node.offsetHeight * scaleObject,
+        style: {
+          transform: "scale(" + scaleObject + ")",
+          transformOrigin: "top left",
+        },
+        quality: 1,
+      };
+      try {
+        await cleanupOldImages();
+
+        domtoimage.toPng(node, options)
+          .then(function (dataUrl) {
+            return domtoimage.toPng(node, options);
+          })
+          .then(async (data1) => {
+            const response = await fetch(data1);
+            const blob = await response.blob();
+
+            if (blob.size > 10 * 1024 * 1024) {
+              alert("Ảnh quá lớn (trên 10MB)!");
+              loaderWrapper.style.display = "none";
+              return;
+            }
+
+            // ☁️ Upload lên Firebase Storage
+            const fileRef = ref(storage, `images/${Date.now()}.png`);
+            await uploadBytes(fileRef, blob);
+            const imageUrl = await getDownloadURL(fileRef);
+
+            loaderWrapper.style.display = "none";
+
+            // 🖼 Hiển thị ảnh
+            const img = new Image();
+            img.src = imageUrl;
+            img.alt = "Lời yêu thương";
+            img.style.maxWidth = "100%";
+            img.style.borderRadius = "12px";
+            img.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)";
+            img.style.marginTop = "10px";
+
+            node.innerHTML = "";
+            node.appendChild(img);
+
+            // 📂 Nút mở tab mới
+            const btnWrapper = document.createElement("div");
+            btnWrapper.style.display = "flex";
+            btnWrapper.style.justifyContent = "center";
+            btnWrapper.style.flexWrap = "wrap";
+            btnWrapper.style.gap = "10px";
+            btnWrapper.style.marginTop = "10px";
+            node.appendChild(btnWrapper);
+
+            // 📋 Nút sao chép link ảnh
+            const copyBtn = document.createElement("button");
+            copyBtn.textContent = "📋 Sao chép đường dẫn ảnh";
+            copyBtn.style.background = "#9C27B0";
+            copyBtn.style.color = "white";
+            copyBtn.style.padding = "10px 14px";
+            copyBtn.style.border = "none";
+            copyBtn.style.borderRadius = "8px";
+            copyBtn.style.cursor = "pointer";
+            copyBtn.style.fontFamily = "system-ui, sans-serif";
+            btnWrapper.appendChild(copyBtn);
+
+            const reloadBtn = document.createElement("button");
+            reloadBtn.textContent = "🔄 Tạo mới";
+            Object.assign(reloadBtn.style, {
+              background: "rgb(243,132,33)",
+              color: "white",
+              padding: "10px 14px",
+              border: "none",
+              borderRadius: "8px",
+              cursor: "pointer",
+              fontFamily: "system-ui, sans-serif",
+            });
+            btnWrapper.appendChild(reloadBtn);
+
+            copyBtn.addEventListener("click", async () => {
+              try {
+                await navigator.clipboard.writeText(imageUrl);
+                copyBtn.textContent = "✅ Đã sao chép!";
+                setTimeout(() => (copyBtn.textContent = "📋 Sao chép đường dẫn ảnh"), 2000);
+              } catch (err) {
+                alert("Không thể sao chép, vui lòng tự copy đường dẫn ảnh.");
+              }
+            });
+
+            reloadBtn.addEventListener("click", () => {
+              location.reload();
+            });
+
+            // 🪧 Popup hướng dẫn
+            const popup = document.createElement("div");
+            popup.innerHTML = `
   <div style="
     position: fixed;
     top: 0; left: 0;
@@ -360,7 +404,7 @@
 
       <ul style="text-align: left; color: #555; font-size: 13px; line-height: 1.5; margin: 0 0 12px 20px; padding: 0;">
         <li>📷 Nhấn và giữ vào ảnh, chọn <b>Tải ảnh</b> hoặc <b>Lưu ảnh xuống</b> (tuỳ thiết bị).</li>
-        <li>🔗 Hoặc sao chép đường dẫn ảnh để sử dụng sau này.</li>
+        <li>🔗 Hoặc sao chép đường dẫn ảnh để sử dụng sau này. (Đường dẫn chỉ có hiệu lực trong 15 phút kể từ lúc tạo lời nhắn)</li>
       </ul>
 
       <p style="font-size: 12px; color: #777; margin-bottom: 14px;">
@@ -381,17 +425,17 @@
       </div>
     </div>
   </div>`;
-          document.body.appendChild(popup);
-          document.getElementById("closePopup").onclick = () => document.body.removeChild(popup);
-          document.getElementById("reloadPage").onclick = () => location.reload();
-        })
-    } catch (err) {
-      console.error("❌ Lỗi tạo ảnh:", err);
-      loaderWrapper.style.display = "none";
-      alert("Không thể tạo ảnh, vui lòng thử lại!");
-    } finally {
-    }
-  });
-</script>
+            document.body.appendChild(popup);
+            document.getElementById("closePopup").onclick = () => document.body.removeChild(popup);
+            document.getElementById("reloadPage").onclick = () => location.reload();
+          })
+      } catch (err) {
+        console.error("❌ Lỗi tạo ảnh:", err);
+        loaderWrapper.style.display = "none";
+        alert("Không thể tạo ảnh, vui lòng thử lại!");
+      } finally {
+      }
+    });
+  </script>
 
 </html>
