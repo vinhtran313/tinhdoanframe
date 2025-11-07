@@ -127,12 +127,12 @@
     } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
 
     const firebaseConfig = {
-      apiKey: "AIzaSyANubrv3SgXf7WAJpAOh05uU9xbCNhwDD0",
-      authDomain: "diachidotinhdoan.firebaseapp.com",
-      projectId: "diachidotinhdoan",
-      storageBucket: "diachidotinhdoan.appspot.com",
-      messagingSenderId: "100623490038",
-      appId: "1:100623490038:web:0b5f5e5a8f0851953945d7"
+      apiKey: "AIzaSyC-BybEM7o4XRwM0l_sXdzwtf__OVxtpts",
+      authDomain: "daihoidoan-3e3c1.firebaseapp.com",
+      projectId: "daihoidoan-3e3c1",
+      storageBucket: "daihoidoan-3e3c1.firebasestorage.app",
+      messagingSenderId: "828189974969",
+      appId: "1:828189974969:web:1d42d1b0cfcfbed4ca9668"
     };
 
     const app = initializeApp(firebaseConfig);
@@ -286,7 +286,7 @@
       loaderWrapper.style.display = "flex";
       const node = document.getElementById("frame-wrapper");
 
-      const scaleObject = window.innerWidth < 768 ? 5 : 3;
+      const scaleObject = window.innerWidth < 768 ? 3 : 2;
       const options = {
         width: node.offsetWidth * scaleObject,
         height: node.offsetHeight * scaleObject,
@@ -328,7 +328,7 @@
             img.style.borderRadius = "12px";
             img.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)";
             img.style.marginTop = "10px";
-
+            console.log(imageUrl);
             node.innerHTML = "";
             node.appendChild(img);
 
@@ -372,6 +372,7 @@
                 copyBtn.textContent = "✅ Đã sao chép!";
                 setTimeout(() => (copyBtn.textContent = "📋 Sao chép đường dẫn ảnh"), 2000);
               } catch (err) {
+                console.log(err);
                 alert("Không thể sao chép, vui lòng tự copy đường dẫn ảnh.");
               }
             });
